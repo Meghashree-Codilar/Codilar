@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Codilar_Demo::main"
+             title="Demo"
+             translate="title"
+             module="Codilar_Demo"
+             sortOrder="50"
+             resource="Codilar_Demo::main"
+        />
+        <add id="Codilar_Demo::vendor"
+             title="Demo Management"
+             translate="title"
+             module="Codilar_Demo"
+             sortOrder="50"
+             resource="Codilar_Demo::vendor"
+             parent="Codilar_Demo::main"
+        />
+        <add id="Codilar_Demo::vendor_list"
+             title="View All Employees"
+             translate="title"
+             module="Codilar_Demo"
+             sortOrder="50"
+             resource="Codilar_Demo::vendor_list"
+             parent="Codilar_Demo::vendor"
+             action="vendor/index/index"
+        />
+    </menu>
+</config>

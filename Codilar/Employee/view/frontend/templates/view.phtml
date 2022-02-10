@@ -1,0 +1,46 @@
+<?php
+/**
+ * @var \Codilar\Employee\Block\View $block
+ */
+$employee = $block->getAllEmployees();
+?>
+<div class="employee-listing">
+    <h1>Our Employee Details</h1>
+    <form method="POST" action="<?php echo $block->getFormUrl();?>">
+    <b><input type="submit" value="Add new Employee" name="Add New Employee" style="border: 2px solid red; padding:10px; border-radius:4px; background-color:powderblue;"></b>
+    </form><br>
+    <?php if (count($employee) > 0): ?>
+        <table>
+            <thead>
+            <tr>
+                <th><?php echo __('Id') ?></th>
+                <th><?php echo __('firstname') ?></th>
+                <th><?php echo __('lastname') ?></th>
+                <th><?php echo __('Action') ?></th>
+
+            </tr>
+            <?php foreach ($block->getAllEmployees() as $employee): ?>
+                <tr>
+                    <td><?php echo $employee->getEntityId()?></td>
+                    <td><?php echo $employee->getFirstname() ?></td>
+                    <td><?php echo $employee->getLastname() ?></td>
+                    <td>
+                        <span>
+                            <button style="border: 2px solid red; padding:10px; border-radius:4px; background-color:powderblue;"><a href="<?php echo $block->getEditUrl(). 'entity_id/' . $employee->getEntityId()?>">Edit</a></button>
+                        </span>
+                        <span>
+                            <button style="border: 2px solid red; padding:10px; border-radius:4px; background-color:powderblue;"><a href="<?php echo $block->getDeleteUrl(). 'entity_id/' . $employee->getEntityId()?>">Delete</a></button>
+                        </span>
+                        <span>
+                            <button style="border: 2px solid red; padding:10px; border-radius:4px; background-color:powderblue;"><a href="<?php echo $block->getDetailslUrl(). 'entity_id/' . $employee->getEntityId()?>">View</a></button>
+                        </span>
+                    </td>
+
+                </tr>
+            <?php endforeach; ?>
+            </thead>
+        </table>
+    <?php else: ?>
+        <h3>employee detail is not available</h3>
+    <?php endif; ?>
+    

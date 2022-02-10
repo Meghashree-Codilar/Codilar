@@ -1,0 +1,31 @@
+<?php
+$data=$block->getFormUrl();
+?>
+<form style="padding: 1rem; margin-top: 1rem; border: 1px solid silver" method="POST" action="<?php echo $block->getAddUrl() ?>" >
+        <h3>Employee Details</h3>
+        <div>
+            <label>Firstname</label>
+            <input name="firstname" type="text" />
+            
+        </div>
+        <div>
+            <label>Lastname</label>
+            <input name="lastname" type="text" />
+        </div>
+        <div>
+            <label>Email</label>
+            <input name="email" type="email"/>
+        </div>
+        <div>
+            <label>Address</label>
+            <textarea name="address"></textarea>
+        </div>
+        <div>
+            <label>Phoneno</label>
+            <input type="text" name="phoneno"/>
+        </div><br>
+
+        <button style="border: 2px solid red; padding:10px; border-radius:4px; background-color:powderblue;">Submit</button>
+    </form>
+</div>
+

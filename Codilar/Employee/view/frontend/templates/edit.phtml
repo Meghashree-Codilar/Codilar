@@ -1,0 +1,49 @@
+<?php
+$data=$block->getUpdateValues();
+$id='';
+$firstname='';
+$lastname='';
+$email='';
+$address='';
+$phoneno='';
+if($data->getId()){
+    $id=$data->getEntityId();
+    $firstname=$data->getFirstname();
+    $lastname=$data->getLastname();
+    $email=$data->getEmail();
+    $address=$data->getAddress();
+    $phoneno=$data->getPhoneno();
+}
+?>
+<form style="padding: 1rem; margin-top: 1rem; border: 1px solid silver" method="POST" action="<?php echo $block->getAddUrl() ?>" >
+
+        <h3>Edit Employee Detail</h3>
+        <div>
+            <label>ID</label>
+            <input name="entity_id" value="<?php echo $data->getEntityId();?>" readonly /></div>
+        <div>
+            <label>Firstname</label>
+            <input name="firstname" type="text"  id="firstname" value="<?php echo $data['firstname']?>" />
+            
+        </div>
+        <div>
+            <label>Lastname</label>
+            <input name="lastname" type="text"   id="lastname" value="<?php echo $data['lastname']?>" />
+        </div>
+        <div>
+            <label>Email</label>
+            <input name="email" type="email" id="email" value="<?php echo $data['email']?>"/>
+        </div>
+        <div>
+            <label>Address</label>
+            <input type="textarea" name="address" id="address" value="<?php echo $data['address']?>" />
+        </div>
+        <div>
+            <label>Phoneno</label>
+            <input type="text" name="phoneno"/>
+        </div>
+
+        <button style="border: 2px solid red; padding:10px; border-radius:4px; background-color:powderblue;">Save</button>
+
+    </form>
+</div>

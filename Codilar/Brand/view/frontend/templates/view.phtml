@@ -1,0 +1,48 @@
+<?php
+/**
+ * @var \Codilar\Brand\Block\View $block
+ */
+$brands = $block->getAllBrands();
+?>
+<div class="brand-listing">
+    <h1>Our Brands</h1>
+    <?php if (count($brands) > 0): ?>
+        <table>
+            <thead>
+            <tr>
+                <th><?php echo __('Name') ?></th>
+                <th>Description</th>
+                <th>Is Enabled</th>
+            </tr>
+            <?php foreach ($block->getAllBrands() as $brand): ?>
+                <tr>
+                    <td><?php echo $brand->getName() ?></td>
+                    <td><?php echo $brand->getDescription() ?></td>
+                    <td><?php echo $brand->getIsActive() ? 'Yes': 'No' ?></td>
+                </tr>
+            <?php endforeach; ?>
+            </thead>
+        </table>
+    <?php else: ?>
+        <h3>No brands available</h3>
+    <?php endif; ?>
+    <form style="padding: 1rem; margin-top: 1rem; border: 1px solid silver" method="POST" action="<?php echo $block->getAddUrl() ?>" >
+        <h3>Add new brand</h3>
+        <div>
+            <label>Is Enabled</label>
+            <select name="is_active">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+        <div>
+            <label>Name</label>
+            <input name="name" type="text" />
+        </div>
+        <div>
+            <label>Descripton</label>
+            <textarea name="description"></textarea>
+        </div>
+        <button>Add</button>
+    </form>
+</div>
